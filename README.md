@@ -14,7 +14,7 @@ A Python tool for extracting employee data from LinkedIn company pages. This too
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/linkedin_employee_extractor.git
+git clone https://github.com/kamiljablonski/linkedin_employee_extractor.git
 cd linkedin_employee_extractor
 ```
 

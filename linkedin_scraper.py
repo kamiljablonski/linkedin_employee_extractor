@@ -656,7 +656,7 @@ def _extract_visible_employees(driver: webdriver.Chrome, company_name: str) -> L
                         except Exception as e:
                             logger.debug(f"Failed to extract description for {clean_url}: {e}")
                         
-                        # Utwórz słownik z danymi
+                        # Create dictionary with data
                         employee_data = {
                             'Profile_URL': clean_url,
                             'Description': description,
@@ -677,17 +677,17 @@ def _extract_visible_employees(driver: webdriver.Chrome, company_name: str) -> L
 
 def process_company(driver: webdriver.Chrome, company_name: str, existing_data: Dict[str, Dict[str, str]] = None, companies_list: List[str] = None, update_mode: bool = False) -> bool:
     """
-    Przetwarza jedną firmę: wyszukuje ją i ekstrahuje pracowników.
+    Process a single company: searches for it and extracts employees.
     
     Args:
-        driver: Instancja WebDriver
-        company_name: Nazwa firmy
-        existing_data: Słownik z istniejącymi danymi (dla trybu update)
-        companies_list: Lista firm do przyporządkowania
-        update_mode: Tryb aktualizacji (nie używa tej funkcji w trybie update)
+        driver: WebDriver instance
+        company_name: Company name
+        existing_data: Dictionary with existing data (for update mode)
+        companies_list: List of companies for assignment
+        update_mode: Update mode (this function is not used in update mode)
     
     Returns:
-        bool: True jeśli przetwarzanie zakończyło się sukcesem
+        bool: True if processing completed successfully
     """
     try:
         # In update mode this function should not be called
@@ -936,10 +936,10 @@ def main():
     
     try:
         if update_mode:
-            # Tryb aktualizacji - tylko aktualizuj istniejące profile
+            # Update mode - only update existing profiles
             update_existing_profiles(driver, existing_data, companies)
         else:
-            # Normalny tryb - scrapuj nowe URL-e
+            # Normal mode - scrape new URLs
             total_companies = len(companies)
             successful = 0
             failed = 0
